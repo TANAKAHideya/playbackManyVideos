@@ -59,19 +59,20 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 		//mPreview.setSecure(true);
 		holder1 = mPreview.getHolder();
 		holder1.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-		//holder1.setFixedSize(10,10);
 		holder1.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView2);
 		//mPreview.setSecure(true);
 		holder2 = mPreview.getHolder();
 		holder2.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        holder2.setFixedSize(500,500);
 		holder2.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView3);
 		//mPreview.setSecure(true);
 		holder3 = mPreview.getHolder();
 		holder3.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        holder3.setFixedSize(2000,2000);
 		holder3.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView4);
@@ -84,12 +85,14 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 		//mPreview.setSecure(true);
 		holder5 = mPreview.getHolder();
 		holder5.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        holder5.setFixedSize(20,20);
 		holder5.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView6);
 		//mPreview.setSecure(true);
 		holder6 = mPreview.getHolder();
 		holder6.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        holder6.setFixedSize(2000,2000);
 		holder6.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView7);
