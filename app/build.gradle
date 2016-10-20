@@ -1,13 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 17
+    compileSdkVersion 19
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "com.example.demo.tvdemo"
-        targetSdkVersion 17
+        targetSdkVersion 19
+        minSdkVersion 19
     }
+
 
     buildTypes {
         release {
@@ -15,4 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    productFlavors {
+    }
+
+}
+dependencies {
+    compile 'com.android.support:support-v4:18.0.0'
 }
