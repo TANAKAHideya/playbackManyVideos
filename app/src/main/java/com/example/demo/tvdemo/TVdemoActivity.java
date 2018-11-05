@@ -22,19 +22,13 @@ import android.view.WindowManager;
 
 public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 	private static final String TAG = "TVdemo";
-	private static final String A1_MP4_FILE  = "video/a1.MP4";
+	private static final String A1_MP4_FILE  = "video/a1.mp4";
 	private static final String A2_MP4_FILE  = "video/a2.mp4";
-	private static final String A3_MP4_FILE  = "video/a3.mp4";
-	private static final String B1_MP4_FILE  = "video/b1.MP4";
-	private static final String B2_MP4_FILE  = "video/b2.mp4";
-	private static final String B3_MP4_FILE  = "video/b3.mp4";
-	private static final String C1_MP4_FILE  = "video/c1.MP4";
-	private static final String C2_MP4_FILE  = "video/c2.mp4";
-	private static final String C3_MP4_FILE  = "video/c3.mp4";
+	private static final String A3_MP4_FILE  = "video/b1.mp4";
+	private static final String B1_MP4_FILE  = "video/b2.mp4";
 
 	private SurfaceHolder	holder1,holder2,holder3,
-							holder4,holder5,holder6,
-							holder7,holder8,holder9;
+							holder4;
 	private WakeLock lock;
 	private int prev_status = -1;
 
@@ -81,37 +75,6 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 		holder4.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 		holder4.addCallback(this);
 
-		mPreview = (SurfaceView) findViewById(R.id.surfaceView5);
-		//mPreview.setSecure(true);
-		holder5 = mPreview.getHolder();
-		holder5.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        holder5.setFixedSize(20,20);
-		holder5.addCallback(this);
-
-		mPreview = (SurfaceView) findViewById(R.id.surfaceView6);
-		//mPreview.setSecure(true);
-		holder6 = mPreview.getHolder();
-		holder6.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        holder6.setFixedSize(2000,2000);
-		holder6.addCallback(this);
-
-		mPreview = (SurfaceView) findViewById(R.id.surfaceView7);
-		//mPreview.setSecure(true);
-		holder7 = mPreview.getHolder();
-		holder7.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-		holder7.addCallback(this);
-
-		mPreview = (SurfaceView) findViewById(R.id.surfaceView8);
-		//mPreview.setSecure(true);
-		holder8 = mPreview.getHolder();
-		holder8.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-		holder8.addCallback(this);
-
-		mPreview = (SurfaceView) findViewById(R.id.surfaceView9);
-		//mPreview.setSecure(true);
-		holder9 = mPreview.getHolder();
-		holder9.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-		holder9.addCallback(this);
 
 		PowerManager pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
 		lock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "TVdemo");
@@ -126,37 +89,6 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 		MediaPlayer mp = new MediaPlayer();
 		String mediaPath;
 
-		if(paramSurfaceHolder==holder9){
-			Log.i(TAG, "holder9");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + C3_MP4_FILE;
-			//mp.setSurface(paramSurfaceHolder.getSurface());
-			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.1,(float)0.2);
-		} else
-		if(paramSurfaceHolder==holder8){
-			Log.i(TAG, "holder8");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + C2_MP4_FILE;
-			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.3,(float)0.3);
-		} else
-		if(paramSurfaceHolder==holder7){
-			Log.i(TAG, "holder7");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + C1_MP4_FILE;
-			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.2,(float)0.1);
-		} else
-		if(paramSurfaceHolder==holder6){
-			Log.i(TAG, "holder6");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + B3_MP4_FILE;
-			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.2,(float)0.4);
-		} else
-		if(paramSurfaceHolder==holder5){
-			Log.i(TAG, "holder5");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + B2_MP4_FILE;
-			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.9,(float)0.9);
-		} else
 		if(paramSurfaceHolder==holder4){
 			Log.i(TAG, "holder4");
 			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + B1_MP4_FILE;
