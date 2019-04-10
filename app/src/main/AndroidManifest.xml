@@ -3,7 +3,7 @@
       package="com.example.demo.tvdemo"
       android:versionCode="1"
       android:versionName="20140404-test">
-    <uses-sdk android:targetSdkVersion="19"/>
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <application
