@@ -22,13 +22,12 @@ import android.view.WindowManager;
 
 public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 	private static final String TAG = "TVdemo";
-	private static final String A1_MP4_FILE  = "video/a1.mp4";
-	private static final String A2_MP4_FILE  = "video/a2.mp4";
-	private static final String A3_MP4_FILE  = "video/b1.mp4";
-	private static final String B1_MP4_FILE  = "video/b2.mp4";
+	private static final String V1_MP4_FILE  = "video/video1.mp4";
+	private static final String V2_MP4_FILE  = "video/video2.mp4";
+	private static final String V3_MP4_FILE  = "video/video3.mp4";
+	private static final String V4_MP4_FILE  = "video/video4.mp4";
 
-	private SurfaceHolder	holder1,holder2,holder3,
-							holder4;
+	private SurfaceHolder	holder1,holder2,holder3,	holder4;
 	private WakeLock lock;
 	private int prev_status = -1;
 
@@ -59,14 +58,14 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 		//mPreview.setSecure(true);
 		holder2 = mPreview.getHolder();
 		holder2.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        holder2.setFixedSize(500,500);
+        //holder2.setFixedSize(500,500);
 		holder2.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView3);
 		//mPreview.setSecure(true);
 		holder3 = mPreview.getHolder();
 		holder3.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-        holder3.setFixedSize(2000,2000);
+        //holder3.setFixedSize(2000,2000);
 		holder3.addCallback(this);
 
 		mPreview = (SurfaceView) findViewById(R.id.surfaceView4);
@@ -91,21 +90,21 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 
 		if(paramSurfaceHolder==holder4){
 			Log.i(TAG, "holder4");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + B1_MP4_FILE;
-			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.4,(float)0.2);
-		} else
-		if(paramSurfaceHolder==holder3){
-			Log.i(TAG, "holder3");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + A3_MP4_FILE; 
+			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + V4_MP4_FILE;
 			mp.setDisplay(paramSurfaceHolder);
 			mp.setVolume((float)0.1,(float)0.2);
 		} else
+		if(paramSurfaceHolder==holder3){
+			Log.i(TAG, "holder3");
+			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + V3_MP4_FILE;
+			mp.setDisplay(paramSurfaceHolder);
+			mp.setVolume((float)0.2,(float)0.1);
+		} else
 		if(paramSurfaceHolder==holder2){
 			Log.i(TAG, "holder2");
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + A2_MP4_FILE; 
+			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + V2_MP4_FILE;
 			mp.setDisplay(paramSurfaceHolder);
-			mp.setVolume((float)0.3,(float)0.3);
+			mp.setVolume((float)0.1,(float)0.2);
 		} else {
 			Log.i(TAG, "holder1");
 //			{
@@ -122,7 +121,7 @@ public class TVdemoActivity extends Activity implements SurfaceHolder.Callback{
 //					Log.i(TAG, "setSecure(false)");
 //				}
 //			}
-			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + A1_MP4_FILE; 
+			mediaPath = System.getenv("EXTERNAL_STORAGE") + "/" + V1_MP4_FILE;
 			mp.setDisplay(paramSurfaceHolder);
 			mp.setVolume((float)0.2,(float)0.1);
 		}
